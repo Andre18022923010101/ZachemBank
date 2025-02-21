@@ -1,0 +1,289 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #DAC9BF; /* Темный фон */
+    margin: 0;
+    padding: 0;
+}
+
+/* Заголовок */
+.header {
+    display: flex; /* Используем Flexbox для выравнивания */
+    align-items: center; /* Центрируем элементы по вертикали */
+    justify-content: space-between; /* Размещаем логотип слева и заголовок по центру */
+    padding: 20px 30px;
+    background-color: #DD723C; /* Цвет фона заголовка */
+}
+
+.header h1 {
+    margin: 0; /* Убираем отступы */
+    font-size: 90px;
+    color: #5B191B;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header img {
+    margin-right: 20px; /* Отступ справа для логотипа */
+    height: 80px; /* Устанавливаем размер логотипа */
+    width: auto;
+}
+
+/* Меню */
+.Menu ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    list-style: none; /* Убирает маркеры */
+}
+
+.Menu a {
+    text-decoration: none; /* Убирает подчеркивание */
+    color: #6C6E69;
+    font-weight: bold;
+}
+
+.Menu a:hover {
+    color: #8F0C14; /* Цвет при наведении */
+}
+
+/* Контент */
+.content h1 {
+    text-align: center;
+    color: #5B191B;
+}
+
+.content p {
+    color: green;
+}
+
+/* Доска */
+.Canvas {
+    width: 90%;
+    height: 90%;
+    margin: 20px auto;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Карты */
+.item[data-content="home"] p {
+    text-align: left;
+}
+
+.item[data-content="about"] {
+    display: flex;
+    gap: 100px;
+    justify-content: flex-start;
+}
+
+.wall {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    height: 30%;
+    background-color: #6C6E69;
+    border-radius: 10px;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.wall p {
+    font-size: 50px;
+    margin: 0;
+    text-align: center;
+    flex: 1;
+}
+
+.wall img {
+    width: auto;
+    height: 100%;
+}
+
+.wall button {
+    text-decoration: none;
+    margin-right: 10px;
+    width: 40%;
+    height: 50px;
+    margin-top: 190px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #DD723C;
+}
+
+.wall button:hover {
+    background-color: #5B191B;
+    transform: translateY(-3px);
+}
+
+.wall button:active {
+    background-color: #F0E0C6;
+    transform: translateY(1px);
+}
+
+.my-button {
+    color: white;
+    font-weight: bold;
+}
+
+/* Модальные окна */
+.window {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    /* Заголовок */
+    .header {
+        flex-direction: column; /* Логотип и заголовок вертикально */
+        align-items: center;
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 40px; /* Уменьшаем размер заголовка */
+        position: static;
+        transform: none;
+        text-align: center;
+    }
+
+    .header img {
+        height: 60px; /* Уменьшаем логотип */
+        margin: 10px 0;
+    }
+
+    /* Меню */
+    .Menu ul {
+        flex-direction: column; /* Меню вертикально */
+        gap: 5px;
+        margin-top: 0;
+    }
+
+    .Menu a {
+        font-size: 14px; /* Уменьшаем размер шрифта */
+    }
+
+    /* Доска */
+    .Canvas {
+        width: 95%; /* Почти вся ширина */
+        padding: 10px;
+    }
+
+    /* Карты */
+    .item[data-content="about"] {
+        flex-direction: column; /* Карты вертикально */
+        gap: 20px;
+        align-items: center;
+    }
+
+    .wall {
+        flex-direction: column; /* Элементы в столбик */
+        height: auto; /* Высота по содержимому */
+        padding: 10px;
+    }
+
+    .wall p {
+        font-size: 24px; /* Меньше текст */
+        text-align: center;
+    }
+
+    .wall img {
+        width: 100%; /* Картинка на всю ширину */
+        height: auto; /* Сохраняем пропорции */
+    }
+
+    .wall button {
+        width: 80%; /* Шире кнопка */
+        margin: 20px auto; /* Центрируем кнопку */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Дополнительные улучшения для маленьких экранов */
+    .header h1 {
+        font-size: 30px; /* Еще меньше заголовок */
+    }
+
+    .wall p {
+        font-size: 18px; /* Уменьшаем текст на маленьких экранах */
+    }
+
+    .wall button {
+        width: 90%; /* Кнопки занимают почти всю ширину */
+    }
+}
+/* Модальное окно */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close-btn {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+	
+}
+.confirm-btn button{
+	text-decoration: none;
+	border: none;
+	
+}/* Основной стиль для кнопки */
+.confirm-btn {
+    background-color: #ff6600; /* Оранжевый цвет */
+    color: white; /* Текст белого цвета */
+    border: none; /* Без границ */
+    border-radius: 30px; /* Закругленные углы */
+    padding: 15px 30px; /* Отступы для размера кнопки */
+    font-size: 18px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    text-transform: uppercase; /* Все буквы в верхнем регистре */
+    cursor: pointer; /* Указатель при наведении */
+    transition: all 0.3s ease-in-out; /* Плавный переход для анимации */
+}
+
+/* Эффект при наведении */
+.confirm-btn:hover {
+    background-color: #ff8533; /* Более светлый оттенок оранжевого при наведении */
+    transform: scale(1.1); /* Немного увеличиваем кнопку */
+}
+
+/* Эффект при клике */
+.confirm-btn:active {
+    background-color: #cc5200; /* Еще более темный оранжевый при нажатии */
+    transform: scale(1); /* Вернуть размер кнопки в норму */
+}
+
+
+
